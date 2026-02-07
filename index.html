@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Am Dance Studio | Sanju</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-padding-top: 80px;
+        }
+
+        /* Color Scheme - Professional */
+        :root {
+            --primary: #1a237e;
+            --secondary: #d4af37;
+            --accent: #ff6b6b;
+            --text-light: #f5f5f5;
+            --text-dark: #1a237e;
+            --border-color: #e0e0e0;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-dark: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d47a1 50%, #00838f 100%);
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero p.lead {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 15px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn-primary-custom {
+            background: var(--secondary);
+            color: var(--text-dark);
+            padding: 14px 40px;
+            border: 2px solid var(--secondary);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: white;
+            padding: 14px 40px;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-secondary-custom:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,255,255, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 3;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Image Carousel */
+        .image-carousel {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-dark);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav-button:hover {
+            background: var(--secondary);
+            color: var(--text-dark);
+        }
+
+        .carousel-prev {
+            left: 15px;
+        }
+
+        .carousel-next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--secondary);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .qualification-badges {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .badge-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .cta-button-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            padding: 12px 35px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-custom.filled {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background: var(--secondary);
+            color: var(--text-dark);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== GENERAL STYLES ==================== */
+        .section-title{
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .service-card{
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .service-card:hover{
+            transform: translateY(-10px);
+        }
+
+        .gallery img{
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .testimonial-card::before {
+            content: '✦';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .testimonial-rating {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h6 {
+            color: var(--text-dark);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* ==================== EXPERTISE SECTION ==================== */
+        .expertise-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .expertise-container {
+            background: linear-gradient(135deg, rgba(250, 250, 250, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid var(--border-color);
+        }
+
+        .expertise-item {
+            margin-bottom: 25px;
+        }
+
+        .expertise-item h5 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expertise-item p {
+            color: #555;
+            margin: 0;
+        }
+
+        .cta{
+            background: linear-gradient(135deg, var(--primary) 0%, #0d47a1 50%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        footer{
+            background: #111;
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem !important;
+            letter-spacing: 1px;
+            font-weight: 800 !important;
+            color: white !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin-left: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: 2px solid white !important;
+            padding: 8px 12px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease !important;
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative;
+            width: 20px;
+            height: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .navbar-toggler i {
+            color: white !important;
+        }
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .cta-button-group {
+                flex-direction: column;
+            }
+
+            .qualification-badges {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .expertise-badge {
+                display: block;
+                margin: 8px 0;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .cta .btn-primary-custom {
+                display: block !important;
+                width: 100%;
+                max-width: 100%;
+                margin: 10px 0 !important;
+            }
+
+            footer {
+                text-align: center;
+            }
+        }
+
+        /* ==================== FORM STYLES ==================== */
+        .form-control {
+            background: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary) !important;
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+            background: white;
+        }
+
+        .form-control::placeholder {
+            color: #999;
+            opacity: 0.8;
+        }
+
+        /* ==================== FOOTER RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+
+            footer a {
+                display: inline-block;
+                margin: 0 8px;
+            }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        /* ==================== UTILITIES ==================== */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-secondary-custom {
+            color: var(--secondary);
+        }
+
+        .bg-primary-custom {
+            background: var(--primary);
+        }
+
+        .bg-secondary-custom {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(135deg, #0f1b5e 0%, #1a237e 100%); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#" style="font-size: 1.5rem; letter-spacing: 1px; color: white !important;">
+            I Am Dance Studio
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid white; padding: 8px 12px; transition: all 0.3s ease;">
+            <i class="fas fa-bars" style="color: white; font-size: 1.3rem;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#classes" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="#expertise" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Expertise</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="subtitle">Welcome To Excellence</div>
+        <h1>I Am Dance Studio</h1>
+        <p class="lead">Professional Dance Training for Every Age & Skill</p>
+        <p class="lead" style="font-size: 1.1rem; opacity: 0.8;">Led by Sanju - 10+ Years of Excellence in Dance Education</p>
+        
+        <div class="hero-buttons">
+            <button class="btn-primary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
+            <a href="#classes" class="btn-secondary-custom">Explore Classes</a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15l-5-5h10z" fill="white"/>
+        </svg>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">About Our Studio</h2>
+        
+        <div class="about-container">
+            <!-- Image Carousel -->
+            <div class="image-carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-inner" id="carouselInner">
+                        <div class="carousel-slide active">
+                            <img src="imgs/sanju.jpeg" alt="Sanju - Dance Instructor">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="imgs/sanju 1.jpeg" alt="Dance Performance">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="imgs/sanju 3.jpeg" alt="Dance Class">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="imgs/sanju2.jpeg" alt="Dance Training">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav-button carousel-prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-nav-button carousel-next" onclick="changeSlide(1)">&#10095;</button>
+                
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <!-- About Content -->
+            <div class="about-content">
+                <h3>Meet Your Instructor – Sanju</h3>
+                
+                <p>
+                    I Am Dance Studio is a premier dance academy established with a vision to nurture talent and foster a deep passion for dance. 
+                    Under the expert guidance of Sanju, our founder and principal instructor, we have trained over 1000+ students across multiple disciplines.
+                </p>
+
+                <p>
+                    Sanju is a certified professional dancer and choreographer with <strong>10+ years of dedicated experience</strong> in classical, 
+                    contemporary, and Bollywood dance forms. His innovative teaching methodology combines traditional techniques with modern trends, 
+                    ensuring comprehensive development of our students.
+                </p>
+
+                <div class="qualification-badges">
+                    <div class="badge">
+                        <div class="badge-icon">🎭</div>
+                        <strong>Professional Dancer</strong>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🏆</div>
+                        <strong>Award Winner</strong>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">📚</div>
+                        <strong>Certified Trainer</strong>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🎪</div>
+                        <strong>Event Choreographer</strong>
+                    </div>
+                </div>
+
+                <p>
+                    Associated with <strong>DAV School, Solan</strong> and featured in prestigious events including the Himachal Dance Festival, 
+                    Shoolini Fair, and numerous cultural programs across the state. Our studio is committed to excellence, creativity, and 
+                    providing a supportive environment for dancers at all levels.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Stage Shows</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Awards Won</div>
+                    </div>
+                </div>
+
+                <div class="cta-button-group">
+                    <button class="btn-custom filled" onclick="document.getElementById('classes').scrollIntoView({behavior: 'smooth'})">
+                        Explore Classes
+                    </button>
+                    <button class="btn-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Classes Section -->
+<section class="py-5 bg-light" id="classes">
+    <div class="container">
+        <h2 class="section-title">Our Classes</h2>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-child fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Kids Dance</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Fun-based dance training for kids (5–10 years). Develops coordination, confidence, and creativity.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 5-10 years | Duration: 45 mins</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-music fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Hip Hop & Freestyle</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Professional hip-hop and freestyle dance classes for modern dancers of all levels.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 10+ years | Duration: 60 mins</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-heart fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Bollywood Dance</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Learn authentic Bollywood dance for stage performances and special events.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 8+ years | Duration: 60 mins</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-dumbbell fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Fitness Dance</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Dance + fitness sessions for health, energy, and overall wellness with fun choreography.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 12+ years | Duration: 60 mins</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-ring fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Wedding Choreography</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Customized dance routines and choreography for weddings and special celebrations.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Customized | Duration: Flexible</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
+                    <i class="fa-solid fa-school fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">School Training</h5>
+                    <p style="color: #666; margin-bottom: 20px;">Professional training programs for school competitions and cultural events.</p>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 6+ years | Duration: 60-90 mins</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="py-5" id="gallery">
+    <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">
+            Moments from our dance performances, classes, and events
+        </p>
+        <div class="row g-3 gallery">
+
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/sanju.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/sanju 1.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/sanju 3.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/sanju2.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.45 PM.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="col-md-4 col-sm-6" style="overflow: hidden; border-radius: 10px;">
+                <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.46 PM.jpeg" style="transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5" id="testimonials" style="background: linear-gradient(135deg, rgba(250, 250, 250, 0.95) 0%, rgb(240, 240, 240, 0.95) 100%);">
+    <div class="container">
+        <h2 class="section-title">Student Testimonials</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">
+            Real stories from our talented dancers who transformed through our training
+        </p>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Sanju sir is an incredible instructor. His teaching method is so clear and motivating. I went from zero dance knowledge to performing on stage in just 3 months!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">R</div>
+                        <div class="testimonial-info">
+                            <h6>Riya Sharma</h6>
+                            <p>Bollywood Dance Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The best decision I made for my fitness journey. The hip-hop classes are fun, energetic, and you don't even feel like you're exercising. Highly recommend!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h6>Aman Patel</h6>
+                            <p>Hip Hop & Fitness Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "My daughter has gained so much confidence since joining the Kids Dance class. She loves Sanju sir and looks forward to every class. Amazing teacher!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">P</div>
+                        <div class="testimonial-info">
+                            <h6>Priya Kapoor</h6>
+                            <p>Parent - Kids Dance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Won our school's dance competition thanks to Sanju sir's choreography and training. He brought out the best in our team. Forever grateful!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">V</div>
+                        <div class="testimonial-info">
+                            <h6>Vikram Singh</h6>
+                            <p>School Training Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The wedding choreography Sanju sir created for us was absolutely stunning. Our guests couldn't stop talking about our performance. Perfect execution!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">D</div>
+                        <div class="testimonial-info">
+                            <h6>Divya & Dev</h6>
+                            <p>Wedding Choreography Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "After 6 months of training, I feel completely transformed. Sanju sir's passion for dance is contagious and his expertise is unmatched in the region."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">N</div>
+                        <div class="testimonial-info">
+                            <h6>Neha Rawat</h6>
+                            <p>Contemporary Dancer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Instructor Expertise Section -->
+<section class="py-5 bg-light" id="expertise">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="imgs/sanju.jpeg" alt="Sanju - Professional Dancer" style="border-radius: 15px; box-shadow: var(--shadow-dark); width: 100%; height: auto;">
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Sanju - Expert Dancer & Choreographer</h2>
+                
+                <div class="expertise-container">
+                    <div class="expertise-item">
+                        <h5><i class="fas fa-medal" style="color: var(--secondary);"></i> Professional Expertise</h5>
+                        <p>
+                            With over 10+ years of professional dancing experience, Sanju has mastered multiple dance forms including Classical, Bollywood, Hip-Hop, Contemporary, and Freestyle. His versatility and technical excellence set him apart in the dance industry.
+                        </p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <h5><i class="fas fa-trophy" style="color: var(--secondary);"></i> Achievements</h5>
+                        <p>
+                            ✓ 15+ National & Regional Dance Competitions Won<br>
+                            ✓ 50+ Professional Stage Performances<br>
+                            ✓ Choreographed 100+ Events & Functions<br>
+                            ✓ Featured in Major Regional Dance Festivals
+                        </p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <h5><i class="fas fa-graduation-cap" style="color: var(--secondary);"></i> Teaching Excellence</h5>
+                        <p>
+                            Trained 1000+ students from beginner to advanced levels. Certified trainer with proven ability to develop dancers' technical skills, confidence, and artistic expression through innovative teaching methods.
+                        </p>
+                    </div>
+
+                    <div class="expertise-item">
+                        <h5><i class="fas fa-star" style="color: var(--secondary);"></i> Dance Specialties</h5>
+                        <div style="margin-top: 12px;">
+                            <span class="expertise-badge">Bollywood Choreography</span>
+                            <span class="expertise-badge">Hip-Hop & Freestyle</span>
+                            <span class="expertise-badge">Contemporary Dance</span>
+                            <span class="expertise-badge">Indian Classical</span>
+                            <span class="expertise-badge">Wedding Choreography</span>
+                            <span class="expertise-badge">Event Management</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-item">
+                        <h5><i class="fas fa-building" style="color: var(--secondary);"></i> Professional Associations</h5>
+                        <p>
+                            ✓ Associated with DAV School, Solan<br>
+                            ✓ Featured in Himachal Dance Festival<br>
+                            ✓ Participant in Shoolini Fair Events<br>
+                            ✓ Regional Cultural Events Choreographer
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academy Info Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Why Choose I Am Dance Studio</h2>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <i class="fas fa-graduation-cap fa-3x mb-3" style="color: var(--secondary);"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Expert Guidance</h5>
+                    <p style="color: #666;">Learn from Sanju - a professional dancer and choreographer with 10+ years of international-level expertise in multiple dance forms.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <i class="fas fa-users fa-3x mb-3" style="color: var(--secondary);"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Community Focus</h5>
+                    <p style="color: #666;">Join a community of 1000+ trained dancers. Supportive atmosphere where everyone gets personalized attention and encouragement.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <i class="fas fa-star fa-3x mb-3" style="color: var(--secondary);"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Performance Opportunities</h5>
+                    <p style="color: #666;">Regular stage shows, competitions, and performance opportunities. Let your talent shine on professional platforms with full guidance.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <i class="fas fa-map-location-dot fa-3x mb-3" style="color: var(--secondary);"></i>
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Convenient Location</h5>
+                    <p style="color: #666;">Based in Solan, Himachal Pradesh. Easy accessibility with flexible class schedules for students of all ages.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="py-5 bg-light" id="achievements">
+    <div class="container">
+        <h2 class="section-title">Our Achievements</h2>
+        <div class="row text-center">
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="stat-item" style="border-left: 5px solid var(--secondary);">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Awards Won</div>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Regional and national competitions</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="stat-item" style="border-left: 5px solid var(--secondary);">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Stage Shows</div>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Professional performances at events</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="stat-item" style="border-left: 5px solid var(--secondary);">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Students Trained</div>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Success stories and transformations</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="stat-item" style="border-left: 5px solid var(--secondary);">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Dedicated to dance excellence</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta text-center">
+    <div class="container">
+        <h2 class="fw-bold" style="font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 20px;">Ready to Start Your Dance Journey?</h2>
+        <p class="mt-3" style="font-size: clamp(1rem, 3vw, 1.25rem); opacity: 0.95; margin-bottom: 40px;">
+            Join I Am Dance Studio Today & Discover Your Hidden Talent with Expert Guidance
+        </p>
+        <a href="#contact" class="btn-primary-custom" style="background: var(--secondary); border-color: var(--secondary);">Enroll Now</a>
+        <a href="#classes" class="btn-primary-custom" style="background: transparent; border-color: var(--secondary); color: var(--secondary); margin-left: 20px;">Explore All Classes</a>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5" id="contact" style="background: #fafafa;">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="row g-4">
+
+            <div class="col-md-5">
+                <div class="card p-4 h-100" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 30px;">Get in Touch</h5>
+                    
+                    <div style="margin-bottom: 25px; display: flex; gap: 15px;">
+                        <div style="color: var(--secondary); font-size: 1.5rem;">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-dark);">Instructor</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">Sanju</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 25px; display: flex; gap: 15px;">
+                        <div style="color: var(--secondary); font-size: 1.5rem;">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-dark);">Phone</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;"><a href="tel:+919XXXXXXXXX" style="color: #0066cc; text-decoration: none;">+91 9XXXXXXXXX</a></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 25px; display: flex; gap: 15px;">
+                        <div style="color: var(--secondary); font-size: 1.5rem;">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-dark);">Email</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;"><a href="mailto:iamdance@gmail.com" style="color: #0066cc; text-decoration: none;">iamdance@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px; display: flex; gap: 15px;">
+                        <div style="color: var(--secondary); font-size: 1.5rem;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-dark);">Location</strong>
+                            <p style="margin: 5px 0 0 0; color: #666;">Solan, Himachal Pradesh</p>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 30px 0; border-color: var(--border-color);">
+
+                    <div style="display: flex; gap: 20px; justify-content: flex-start;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem; transition: all 0.3s; display: inline-block;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--primary)'">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem; transition: all 0.3s; display: inline-block;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--primary)'">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem; transition: all 0.3s; display: inline-block;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--primary)'">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="card p-4" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
+                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 25px;">Send Us A Message</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Full Name *</label>
+                            <input type="text" class="form-control" placeholder="Your Name" required style="border: 2px solid var(--border-color); padding: 12px;">
+                        </div>
+                        <div class="mb-3">
+                            <label style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Email Address *</label>
+                            <input type="email" class="form-control" placeholder="Your Email" required style="border: 2px solid var(--border-color); padding: 12px;">
+                        </div>
+                        <div class="mb-3">
+                            <label style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="Your Phone Number" style="border: 2px solid var(--border-color); padding: 12px;">
+                        </div>
+                        <div class="mb-3">
+                            <label style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Subject *</label>
+                            <input type="text" class="form-control" placeholder="Subject" required style="border: 2px solid var(--border-color); padding: 12px;">
+                        </div>
+                        <div class="mb-3">
+                            <label style="color: var(--text-dark); font-weight: 600; margin-bottom: 8px;">Message *</label>
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required style="border: 2px solid var(--border-color); padding: 12px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary-custom" style="width: 100%; background: var(--primary); border-color: var(--primary); font-weight: 600;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer style="background: linear-gradient(to right, var(--primary), var(--text-dark)); padding: 50px 0 20px;">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-4 mb-4">
+                <h5 style="color: var(--secondary); font-weight: 700; margin-bottom: 15px;">I Am Dance Studio</h5>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem;">
+                    Professional dance education and training center dedicated to fostering excellence in dance and performing arts.
+                </p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 style="color: var(--secondary); font-weight: 700; margin-bottom: 15px;">Quick Links</h5>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#home" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Home</a></li>
+                    <li><a href="#about" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">About</a></li>
+                    <li><a href="#classes" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Classes</a></li>
+                    <li><a href="#gallery" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Gallery</a></li>
+                    <li><a href="#testimonials" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Testimonials</a></li>
+                    <li><a href="#expertise" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Expertise</a></li>
+                    <li><a href="#contact" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 style="color: var(--secondary); font-weight: 700; margin-bottom: 15px;">Follow Us</h5>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: var(--secondary); font-size: 1.3rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" style="color: var(--secondary); font-size: 1.3rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" style="color: var(--secondary); font-size: 1.3rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" style="color: var(--secondary); font-size: 1.3rem; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 30px 0;">
+        
+        <div style="text-align: center; color: rgba(255, 255, 255, 0.8);">
+            <p style="margin: 10px 0;">© 2026 I Am Dance Studio. All Rights Reserved.</p>
+            <p style="margin: 10px 0; font-size: 0.9rem;">Professional Dance Academy • Solan, Himachal Pradesh</p>
+            <p style="margin: 10px 0; font-size: 0.85rem; opacity: 0.7;">Designed & Developed by a Senior Full Stack Developer | <span style="color: var(--secondary);">Excellence in Code & Design</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Carousel JavaScript -->
+<script>
+    let currentSlideIndex = 0;
+
+    function changeSlide(n) {
+        showSlide(currentSlideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlide(currentSlideIndex = n);
+    }
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        if (n >= slides.length) {
+            currentSlideIndex = 0;
+        }
+        if (n < 0) {
+            currentSlideIndex = slides.length - 1;
+        }
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        slides[currentSlideIndex].classList.add('active');
+        dots[currentSlideIndex].classList.add('active');
+    }
+
+    // Auto-advance carousel every 5 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+
+    // Smooth scroll behavior for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .stat-item, .badge').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
