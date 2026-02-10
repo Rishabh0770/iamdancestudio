@@ -477,19 +477,52 @@
         }
 
         /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials-slider-container {
+            display: flex;
+            gap: 25px;
+            animation: slideLoop 30s linear infinite;
+            width: fit-content;
+        }
+
+        .testimonials-slider-container:hover {
+            animation-play-state: paused;
+        }
+
+        /* Hide scrollbars while allowing scroll */
+        .testimonials-slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonials-slider-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes slideLoop {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% - 25px));
+            }
+        }
+
         .testimonial-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             border-left: 5px solid var(--secondary);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            flex: 0 0 350px;
+            min-width: 350px;
+            cursor: pointer;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-dark);
+            transform: scale(1.08) translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .testimonial-card::before {
@@ -673,6 +706,21 @@
         @media (max-width: 768px) {
             .about-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonials-slider-container {
+                gap: 20px;
+            }
+
+            .testimonial-card {
+                flex: 0 0 280px;
+                min-width: 280px;
+                padding: 20px;
+            }
+
+            .testimonial-card:hover {
+                transform: scale(1.05) translateY(-10px);
             }
 
             .hero h1 {
@@ -703,10 +751,6 @@
                 margin: 8px 0;
             }
 
-            .testimonial-card {
-                padding: 20px;
-            }
-
             .cta .btn-primary-custom {
                 display: block !important;
                 width: 100%;
@@ -716,6 +760,26 @@
 
             footer {
                 text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .testimonials-slider-container {
+                gap: 15px;
+            }
+
+            .testimonial-card {
+                flex: 0 0 250px;
+                min-width: 250px;
+                padding: 18px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
             }
         }
 
@@ -816,7 +880,7 @@
         <div class="subtitle">Welcome To Excellence</div>
         <h1>I Am Dance Studio</h1>
         <p class="lead">Professional Dance Training for Every Age & Skill</p>
-        <p class="lead" style="font-size: 1.1rem; opacity: 0.8;">Led by Sanju - 10+ Years of Excellence in Dance Education</p>
+        <p class="lead" style="font-size: 1.1rem; opacity: 0.8;">Led by Sanju - 15 Years of Excellence in Dance Education</p>
         
         <div class="hero-buttons">
             <button class="btn-primary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
@@ -834,7 +898,7 @@
 <!-- About Section -->
 <section class="about" id="about">
     <div class="container">
-        <h2 class="section-title">About Our Studio</h2>
+        <h2 class="section-title">About</h2>
         
         <div class="about-container">
             <!-- Image Carousel -->
@@ -869,62 +933,25 @@
 
             <!-- About Content -->
             <div class="about-content">
-                <h3>Meet Your Instructor – Sanju</h3>
-                
-                <p>
-                    I Am Dance Studio is a premier dance academy established with a vision to nurture talent and foster a deep passion for dance. 
-                    Under the expert guidance of Sanju, our founder and principal instructor, we have trained over 1000+ students across multiple disciplines.
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #333; margin-bottom: 18px; text-align: justify;">
+                    I Am Dance Studio is a well-known and trusted dance academy based in Solan, dedicated to shaping passionate dancers from an early age. Founded by a professionally trained dancer with years of experience, our academy has been inspiring students to express themselves through the art of dance since childhood.
                 </p>
 
-                <p>
-                    Sanju is a certified professional dancer and choreographer with <strong>10+ years of dedicated experience</strong> in classical, 
-                    contemporary, and Bollywood dance forms. His innovative teaching methodology combines traditional techniques with modern trends, 
-                    ensuring comprehensive development of our students.
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #333; margin-bottom: 18px; text-align: justify;">
+                    With a strong foundation built on discipline, creativity, and confidence, we provide high-quality dance training for children, teenagers, and adults. Our mission is to nurture talent, boost self-confidence, and help every student discover their true potential.
                 </p>
 
-                <div class="qualification-badges">
-                    <div class="badge">
-                        <div class="badge-icon">🎭</div>
-                        <strong>Professional Dancer</strong>
-                    </div>
-                    <div class="badge">
-                        <div class="badge-icon">🏆</div>
-                        <strong>Award Winner</strong>
-                    </div>
-                    <div class="badge">
-                        <div class="badge-icon">📚</div>
-                        <strong>Certified Trainer</strong>
-                    </div>
-                    <div class="badge">
-                        <div class="badge-icon">🎪</div>
-                        <strong>Event Choreographer</strong>
-                    </div>
-                </div>
-
-                <p>
-                    Associated with <strong>DAV School, Solan</strong> and featured in prestigious events including the Himachal Dance Festival, 
-                    Shoolini Fair, and numerous cultural programs across the state. Our studio is committed to excellence, creativity, and 
-                    providing a supportive environment for dancers at all levels.
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #333; margin-bottom: 18px; text-align: justify;">
+                    At I Am Dance Studio, we believe that dance is not just a skill — it is a way of life. Our experienced instructors focus on personal attention, modern teaching techniques, and a friendly learning environment to ensure every student grows both technically and personally.
                 </p>
 
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Students Trained</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Stage Shows</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Awards Won</div>
-                    </div>
-                </div>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #333; margin-bottom: 18px; text-align: justify;">
+                    Over the years, we have proudly trained hundreds of students and helped them perform on various stages, competitions, and cultural events. Our academy continues to grow with the trust and support of parents and students.
+                </p>
+
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #333; margin-bottom: 20px; font-weight: 600; text-align: justify;">
+                    Join I Am Dance Studio and begin your journey towards confidence, creativity, and excellence in dance.
+                </p>
 
                 <div class="cta-button-group">
                     <button class="btn-custom filled" onclick="document.getElementById('classes').scrollIntoView({behavior: 'smooth'})">
@@ -950,7 +977,7 @@
                     <i class="fa-solid fa-child fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
                     <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Kids Dance</h5>
                     <p style="color: #666; margin-bottom: 20px;">Fun-based dance training for kids (5–10 years). Develops coordination, confidence, and creativity.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 5-10 years | Duration: 45 mins</small>
+                    <small style="color: var(--secondary); font-weight: 600;">Age: 5-10 years | Duration: 1 hour</small>
                 </div>
             </div>
 
@@ -1036,146 +1063,133 @@
 </section>
 
 <!-- Testimonials Section -->
-<section class="py-5" id="testimonials" style="background: linear-gradient(135deg, rgba(250, 250, 250, 0.95) 0%, rgb(240, 240, 240, 0.95) 100%);">
+<section class="py-5" id="testimonials" style="background: linear-gradient(135deg, rgba(250, 250, 250, 0.95) 0%, rgb(240, 240, 240, 0.95) 100%); overflow: hidden;">
     <div class="container">
-        <h2 class="section-title">Student Testimonials</h2>
-        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">
-            Real stories from our talented dancers who transformed through our training
-        </p>
-        <div class="row g-4">
+        <h2 class="section-title">Testimonials</h2>
+        <div style="display: flex; justify-content: center; width: 100%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;">
+            <div style="-webkit-scrollbar: none; scrollbar-width: none;" class="testimonials-slider-container">
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Sanju sir is an incredible instructor. His teaching method is so clear and motivating. I went from zero dance knowledge to performing on stage in just 3 months!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">R</div>
-                        <div class="testimonial-info">
-                            <h6>Riya Sharma</h6>
-                            <p>Bollywood Dance Student</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Sanju sir is an incredible instructor. His teaching method is so clear and motivating. I went from zero dance knowledge to performing on stage in just 3 months!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">R</div>
+                    <div class="testimonial-info">
+                        <h6>Riya Sharma</h6>
+                        <p>Bollywood Dance Student</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "The best decision I made for my fitness journey. The hip-hop classes are fun, energetic, and you don't even feel like you're exercising. Highly recommend!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">A</div>
-                        <div class="testimonial-info">
-                            <h6>Aman Patel</h6>
-                            <p>Hip Hop & Fitness Student</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "The best decision I made for my fitness journey. The hip-hop classes are fun, energetic, and you don't even feel like you're exercising. Highly recommend!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">A</div>
+                    <div class="testimonial-info">
+                        <h6>Aman Patel</h6>
+                        <p>Hip Hop & Fitness Student</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "My daughter has gained so much confidence since joining the Kids Dance class. She loves Sanju sir and looks forward to every class. Amazing teacher!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">P</div>
-                        <div class="testimonial-info">
-                            <h6>Priya Kapoor</h6>
-                            <p>Parent - Kids Dance</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "My daughter has gained so much confidence since joining the Kids Dance class. She loves Sanju sir and looks forward to every class. Amazing teacher!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">P</div>
+                    <div class="testimonial-info">
+                        <h6>Priya Kapoor</h6>
+                        <p>Parent - Kids Dance</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Won our school's dance competition thanks to Sanju sir's choreography and training. He brought out the best in our team. Forever grateful!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">V</div>
-                        <div class="testimonial-info">
-                            <h6>Vikram Singh</h6>
-                            <p>School Training Student</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Won our school's dance competition thanks to Sanju sir's choreography and training. He brought out the best in our team. Forever grateful!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">V</div>
+                    <div class="testimonial-info">
+                        <h6>Vikram Singh</h6>
+                        <p>School Training Student</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "The wedding choreography Sanju sir created for us was absolutely stunning. Our guests couldn't stop talking about our performance. Perfect execution!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">D</div>
-                        <div class="testimonial-info">
-                            <h6>Divya & Dev</h6>
-                            <p>Wedding Choreography Client</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "The wedding choreography Sanju sir created for us was absolutely stunning. Our guests couldn't stop talking about our performance. Perfect execution!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">D</div>
+                    <div class="testimonial-info">
+                        <h6>Divya & Dev</h6>
+                        <p>Wedding Choreography Client</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "After 6 months of training, I feel completely transformed. Sanju sir's passion for dance is contagious and his expertise is unmatched in the region."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">N</div>
-                        <div class="testimonial-info">
-                            <h6>Neha Rawat</h6>
-                            <p>Contemporary Dancer</p>
-                        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "After 6 months of training, I feel completely transformed. Sanju sir's passion for dance is contagious and his expertise is unmatched in the region."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">N</div>
+                    <div class="testimonial-info">
+                        <h6>Neha Rawat</h6>
+                        <p>Contemporary Dancer</p>
                     </div>
                 </div>
             </div>
-
+        </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1252,7 +1266,7 @@
                 <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
                     <i class="fas fa-graduation-cap fa-3x mb-3" style="color: var(--secondary);"></i>
                     <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Expert Guidance</h5>
-                    <p style="color: #666;">Learn from Sanju - a professional dancer and choreographer with 10+ years of international-level expertise in multiple dance forms.</p>
+                    <p style="color: #666;">Learn from Sanju - a professional dancer and choreographer with 15+ years of international-level expertise in multiple dance forms.</p>
                 </div>
             </div>
 
@@ -1260,7 +1274,7 @@
                 <div class="card p-4 h-100 text-center" style="border: none; box-shadow: var(--shadow); border-top: 4px solid var(--secondary);">
                     <i class="fas fa-users fa-3x mb-3" style="color: var(--secondary);"></i>
                     <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Community Focus</h5>
-                    <p style="color: #666;">Join a community of 1000+ trained dancers. Supportive atmosphere where everyone gets personalized attention and encouragement.</p>
+                    <p style="color: #666;">Join a community of 5000+ trained dancers. Supportive atmosphere where everyone gets personalized attention and encouragement.</p>
                 </div>
             </div>
 
@@ -1308,7 +1322,7 @@
 
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="stat-item" style="border-left: 5px solid var(--secondary);">
-                    <div class="stat-number">1000+</div>
+                    <div class="stat-number">5000+</div>
                     <div class="stat-label">Students Trained</div>
                     <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Success stories and transformations</p>
                 </div>
@@ -1316,7 +1330,7 @@
 
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="stat-item" style="border-left: 5px solid var(--secondary);">
-                    <div class="stat-number">10+</div>
+                    <div class="stat-number">15+</div>
                     <div class="stat-label">Years Experience</div>
                     <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">Dedicated to dance excellence</p>
                 </div>
@@ -1364,7 +1378,7 @@
                         </div>
                         <div>
                             <strong style="color: var(--text-dark);">Phone</strong>
-                            <p style="margin: 5px 0 0 0; color: #666;"><a href="tel:+919XXXXXXXXX" style="color: #0066cc; text-decoration: none;">+91 9XXXXXXXXX</a></p>
+                            <p style="margin: 5px 0 0 0; color: #666;"><a href="tel:+918894348964" style="color: #0066cc; text-decoration: none;">+91 8894348964</a></p>
                         </div>
                     </div>
 
@@ -1374,7 +1388,7 @@
                         </div>
                         <div>
                             <strong style="color: var(--text-dark);">Email</strong>
-                            <p style="margin: 5px 0 0 0; color: #666;"><a href="mailto:iamdance@gmail.com" style="color: #0066cc; text-decoration: none;">iamdance@gmail.com</a></p>
+                            <p style="margin: 5px 0 0 0; color: #666;"><a href="mailto:S.riamdancer009@gmail.com" style="color: #0066cc; text-decoration: none;">S.riamdancer009@gmail.com</a></p>
                         </div>
                     </div>
 
@@ -1384,7 +1398,7 @@
                         </div>
                         <div>
                             <strong style="color: var(--text-dark);">Location</strong>
-                            <p style="margin: 5px 0 0 0; color: #666;">Solan, Himachal Pradesh</p>
+                            <p style="margin: 5px 0 0 0; color: #666;">Old DC Office near first-cry showroom Above jio Office 3rd floor Solan H.P</p>
                         </div>
                     </div>
 
