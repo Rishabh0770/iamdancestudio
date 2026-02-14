@@ -1130,8 +1130,8 @@
         .service-card-img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: opacity 0.4s ease;
+            object-fit: cover;
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             z-index: 2;
         }
@@ -1139,12 +1139,12 @@
         .service-card-img-hover {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 3;
         }
 
@@ -1233,17 +1233,51 @@
         }
 
         .service-type-badge {
-            background: linear-gradient(to right, var(--secondary-color), #ff9a3d);
-            color: var(--primary-color);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 700;
+            color: white;
+            display: inline-block;
+        }
+
+        /* Popular - Red/Pink */
+        .services-section .row > .col-lg-3:nth-child(1) .service-type-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff1744);
+            box-shadow: 0 5px 15px rgba(255, 23, 68, 0.3);
+        }
+
+        /* Flexible - Blue/Cyan */
+        .services-section .row > .col-lg-3:nth-child(2) .service-type-badge {
+            background: linear-gradient(135deg, #4169e1, #00bfff);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+        }
+
+        /* Trending - Orange */
+        .services-section .row > .col-lg-3:nth-child(3) .service-type-badge {
+            background: linear-gradient(135deg, #ff6b35, #ffa500);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Exclusive - Purple/Pink */
+        .services-section .row > .col-lg-3:nth-child(4) .service-type-badge {
+            background: linear-gradient(135deg, #9c27b0, #e91e63);
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+        }
+
+        /* Professional - Green */
+        .services-section .row > .col-lg-3:nth-child(5) .service-type-badge {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Certified - Cyan/Turquoise */
+        .services-section .row > .col-lg-3:nth-child(6) .service-type-badge {
+            background: linear-gradient(135deg, #00acc1, #26c6da);
+            box-shadow: 0 5px 15px rgba(0, 172, 193, 0.3);
         }
 
         .service-btn-cta {
-            background: linear-gradient(to right, var(--secondary-color), #ff9a3d);
-            color: var(--primary-color);
             border: none;
             padding: 12px 25px;
             border-radius: 25px;
@@ -1254,13 +1288,107 @@
             width: calc(100% - 40px);
             margin: 15px 20px 20px 20px;
             flex-shrink: 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-btn-cta:hover {
-            background: linear-gradient(to right, var(--primary-color), #2a2a7e);
-            color: white;
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(244, 193, 80, 0.3);
+        /* Regular Classes - Red Button */
+        .services-section .row > .col-lg-3:nth-child(1) .service-btn-cta {
+            background: linear-gradient(135deg, #ff6b6b, #ff1744);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(1) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #ff1744, #c41c3b);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 23, 68, 0.4);
+        }
+
+        /* Online Classes - Blue Button */
+        .services-section .row > .col-lg-3:nth-child(2) .service-btn-cta {
+            background: linear-gradient(135deg, #4169e1, #00bfff);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(2) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #00bfff, #0099cc);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(65, 105, 225, 0.4);
+        }
+
+        /* Fitness Dance - Orange Button */
+        .services-section .row > .col-lg-3:nth-child(3) .service-btn-cta {
+            background: linear-gradient(135deg, #ff6b35, #ffa500);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(3) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #ffa500, #ff8c00);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Wedding Choreography - Purple Button */
+        .services-section .row > .col-lg-3:nth-child(4) .service-btn-cta {
+            background: linear-gradient(135deg, #9c27b0, #e91e63);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(4) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(156, 39, 176, 0.4);
+        }
+
+        /* Event Choreography - Green Button */
+        .services-section .row > .col-lg-3:nth-child(5) .service-btn-cta {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(5) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #66bb6a, #43a047);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Diploma Programs - Cyan Button */
+        .services-section .row > .col-lg-3:nth-child(6) .service-btn-cta {
+            background: linear-gradient(135deg, #00acc1, #26c6da);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(6) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #26c6da, #00897b);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 172, 193, 0.4);
+        }
+
+        /* School Training - Yellow/Gold Button */
+        .services-section .row > .col-lg-3:nth-child(7) .service-type-badge {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(7) .service-btn-cta {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(7) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.4);
+        }
+
+        /* Bollywood Dance - Red/Pink Button (same as Popular) */
+        .services-section .row > .col-lg-3:nth-child(8) .service-type-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff1744);
+            box-shadow: 0 5px 15px rgba(255, 23, 68, 0.3);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(8) .service-btn-cta {
+            background: linear-gradient(135deg, #ff6b6b, #ff1744);
+        }
+
+        .services-section .row > .col-lg-3:nth-child(8) .service-btn-cta:hover {
+            background: linear-gradient(135deg, #ff1744, #c41c3b);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 23, 68, 0.4);
         }
 
         /* ============ SERVICES RESPONSIVE ============ */
@@ -1299,34 +1427,54 @@
             
             .service-content-pro {
                 padding: 18px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
             .service-content-pro h4 {
                 font-size: 1rem;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
+                text-align: center;
             }
             
             .service-content-pro p {
                 font-size: 0.85rem;
                 line-height: 1.5;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
+                text-align: center;
             }
             
             .service-footer-pro {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
                 border-top: none;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
             }
             
             .service-duration {
                 font-size: 0.8rem;
+                justify-content: center;
             }
-            
+
             .service-type-badge {
+                padding: 5px 12px;
                 font-size: 0.75rem;
             }
-        }
 
+            .service-btn-cta {
+                width: auto;
+                min-width: 220px;
+                max-width: 280px;
+                margin: 12px auto;
+                text-align: center;
+            }
+        }
+        
         @media (max-width: 576px) {
             .services-section {
                 padding: 60px 0;
@@ -1336,14 +1484,46 @@
                 height: 140px;
             }
             
-            .service-card-pro {
-                margin-bottom: 20px;
+            .service-content-pro {
+                padding: 15px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
+            .service-content-pro h4 {
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+            }
+            
+            .service-content-pro p {
+                font-size: 0.8rem;
+                margin-bottom: 6px;
+            }
+            
+            .service-footer-pro {
+                gap: 5px;
+                width: 100%;
+            }
+            
+            .service-duration {
+                font-size: 0.75rem;
+            }
+
+            .service-type-badge {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
+
             .service-btn-cta {
-                padding: 10px 15px;
+                padding: 10px 20px;
                 font-size: 0.85rem;
-                margin-top: 10px;
+                width: auto;
+                min-width: 200px;
+                max-width: 250px;
+                margin: 10px auto 15px auto;
+                text-align: center;
             }
         }
         
@@ -1409,6 +1589,116 @@
                 padding: 25px;
             }
         }
+
+        /* ============ CUSTOM IMPRESSIVE ANIMATIONS ============ */
+        @keyframes slideUpPop {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.85);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(244, 193, 80, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(244, 193, 80, 0.8);
+            }
+        }
+
+        @keyframes slideRotate {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) rotate(-15deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Apply custom animations to service cards on hover */
+        .service-card-pro {
+            animation: slideUpPop 0.8s ease-out;
+        }
+
+        .service-card-pro:hover {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        /* Enhanced button animations */
+        .service-btn-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s ease;
+        }
+
+        .service-btn-cta:hover::before {
+            left: 100%;
+        }
+
+        /* Mobile animation optimization */
+        @media (max-width: 768px) {
+            .service-card-pro {
+                animation-duration: 0.6s;
+            }
+
+            [data-aos] {
+                --aos-duration: 600 !important;
+            }
+
+            /* Reduce delays on mobile for snappier feel */
+            [data-aos][data-aos-delay] {
+                --aos-delay: calc(var(--aos-delay) / 1.5) !important;
+            }
+        }
+
+        /* Stagger animation helper */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+
+        /* Spin animation for icons */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-dance-icon i {
+            animation: spinSlow 8s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -1470,42 +1760,42 @@
             </div>
         </div>
         
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h1>I Am Dance Studio <span>by Sanju</span></h1>
-            <p>Premier dance academy offering classical, contemporary, Bollywood & hip-hop training. 15+ years of excellence transforming aspiring dancers into confident performers. Join our vibrant community and discover your rhythm.</p>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+            <h1 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">I Am Dance Studio <span>by Sanju</span></h1>
+            <p data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">Premier dance academy offering classical, contemporary, Bollywood & hip-hop training. 15+ years of excellence transforming aspiring dancers into confident performers. Join our vibrant community and discover your rhythm.</p>
             
-            <div class="hero-services">
-                <div class="hero-service-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="hero-services" data-aos="fade-in" data-aos-duration="1200" data-aos-delay="500">
+                <div class="hero-service-card" data-aos="flip-left" data-aos-duration="900" data-aos-delay="500">
                     <i class="fas fa-music"></i>
                     <span class="hero-service-name">Classical</span>
                 </div>
-                <div class="hero-service-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="hero-service-card" data-aos="flip-up" data-aos-duration="900" data-aos-delay="550">
                     <i class="fas fa-fire"></i>
                     <span class="hero-service-name">Contemporary</span>
                 </div>
-                <div class="hero-service-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="hero-service-card" data-aos="flip-down" data-aos-duration="900" data-aos-delay="600">
                     <i class="fas fa-star"></i>
                     <span class="hero-service-name">Bollywood</span>
                 </div>
-                <div class="hero-service-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="hero-service-card" data-aos="flip-right" data-aos-duration="900" data-aos-delay="650">
                     <i class="fas fa-child"></i>
                     <span class="hero-service-name">Kids Program</span>
                 </div>
             </div>
             
-            <div class="hero-btns">
-                <button class="btn btn-primary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+            <div class="hero-btns" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="700">
+                <button class="btn btn-primary-custom" data-aos="zoom-in-left" data-aos-duration="900" data-aos-delay="800" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
                     <i class="fas fa-calendar-check"></i> Enroll Now
                 </button>
-                <a href="#services" class="btn btn-secondary-custom">
+                <a href="#services" class="btn btn-secondary-custom" data-aos="zoom-in-right" data-aos-duration="900" data-aos-delay="900">
                     <i class="fas fa-play-circle"></i> Explore Classes
                 </a>
             </div>
         </div>
-        <div class="hero-dance-icon">
+        <div class="hero-dance-icon" data-aos="spin" data-aos-duration="2000" data-aos-delay="700">
             <i class="fas fa-music"></i>
         </div>
-        <div class="scroll-down">
+        <div class="scroll-down" data-aos="bounce" data-aos-duration="1500" data-aos-delay="1000" data-aos-repeat="false">
             <a href="#about" style="color: white;">
                 <i class="fas fa-chevron-down"></i>
             </a>
@@ -1538,8 +1828,8 @@
                         <p>With a strong foundation built on discipline, creativity, and confidence, we provide high-quality dance training for children, teenagers, and adults. Our mission is to nurture talent, boost self-confidence, and help every student discover their true potential.</p>
                         <p>At I Am Dance Studio, we believe that dance is not just a skill — it is a way of life. Our experienced instructors focus on personal attention, modern teaching techniques, and a friendly learning environment to ensure every student grows both technically and personally.</p>
                         
-                        <div class="about-features">
-                            <div class="about-feature">
+                        <div class="about-features" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                            <div class="about-feature" data-aos="flip-left" data-aos-duration="800" data-aos-delay="400">
                                 <div class="about-feature-icon">
                                     <i class="fas fa-medal"></i>
                                 </div>
@@ -1548,7 +1838,7 @@
                                     <p>National & regional competitions</p>
                                 </div>
                             </div>
-                            <div class="about-feature">
+                            <div class="about-feature" data-aos="flip-up" data-aos-duration="800" data-aos-delay="500">
                                 <div class="about-feature-icon">
                                     <i class="fas fa-trophy"></i>
                                 </div>
@@ -1557,7 +1847,7 @@
                                     <p>Professional performances at events</p>
                                 </div>
                             </div>
-                            <div class="about-feature">
+                            <div class="about-feature" data-aos="flip-right" data-aos-duration="800" data-aos-delay="600">
                                 <div class="about-feature-icon">
                                     <i class="fas fa-users"></i>
                                 </div>
@@ -1568,7 +1858,7 @@
                             </div>
                         </div>
                         
-                        <button class="btn btn-primary-custom mt-4" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        <button class="btn btn-primary-custom mt-4" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="700" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
                             <i class="fas fa-phone"></i> Contact Now
                         </button>
                     </div>
@@ -1587,8 +1877,8 @@
             
             <div class="row">
                 <!-- Service 1: Regular Classes -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="100">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju.jpeg" alt="Regular Dance Classes" class="service-card-img">
                             <img src="imgs/sanju 1.jpeg" alt="Regular Dance Classes Hover" class="service-card-img-hover">
@@ -1606,8 +1896,8 @@
                 </div>
 
                 <!-- Service 2: Online Classes -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="150">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="150">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju 1.jpeg" alt="Online Dance Classes" class="service-card-img">
                             <img src="imgs/sanju 3.jpeg" alt="Online Dance Classes Hover" class="service-card-img-hover">
@@ -1625,8 +1915,8 @@
                 </div>
 
                 <!-- Service 3: Fitness Dance -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="200">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju 3.jpeg" alt="Fitness Dance" class="service-card-img">
                             <img src="imgs/sanju2.jpeg" alt="Fitness Dance Hover" class="service-card-img-hover">
@@ -1644,8 +1934,8 @@
                 </div>
 
                 <!-- Service 4: Wedding Choreography -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="250">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="250">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju2.jpeg" alt="Wedding Choreography" class="service-card-img">
                             <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.45 PM.jpeg" alt="Wedding Choreography Hover" class="service-card-img-hover">
@@ -1663,8 +1953,8 @@
                 </div>
 
                 <!-- Service 5: Event Choreography -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="100">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.45 PM.jpeg" alt="Event Choreography" class="service-card-img">
                             <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.46 PM.jpeg" alt="Event Choreography Hover" class="service-card-img-hover">
@@ -1682,8 +1972,8 @@
                 </div>
 
                 <!-- Service 6: Diploma Programs -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="150">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="150">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/WhatsApp Image 2026-02-05 at 2.13.46 PM.jpeg" alt="Diploma Programs" class="service-card-img">
                             <img src="imgs/sanju.jpeg" alt="Diploma Programs Hover" class="service-card-img-hover">
@@ -1701,8 +1991,8 @@
                 </div>
 
                 <!-- Service 7: School Training -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="200">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju.jpeg" alt="School Training" class="service-card-img">
                             <img src="imgs/sanju 1.jpeg" alt="School Training Hover" class="service-card-img-hover">
@@ -1720,8 +2010,8 @@
                 </div>
 
                 <!-- Service 8: Bollywood Dance -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="250">
-                    <div class="service-card-pro">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="250">
+                    <div class="service-card-pro" style="transition: all 0.3s ease;">
                         <div class="service-card-img-header">
                             <img src="imgs/sanju 1.jpeg" alt="Bollywood Dance" class="service-card-img">
                             <img src="imgs/sanju 3.jpeg" alt="Bollywood Dance Hover" class="service-card-img-hover">
@@ -2236,12 +2526,52 @@
     
     <!-- Main JavaScript -->
     <script>
-        // Initialize AOS Animation
+        // Initialize AOS Animation with enhanced settings
         AOS.init({
             duration: 1000,
             once: true,
-            offset: 100
+            offset: 100,
+            easing: 'ease-in-out-quad',
+            disable: false
         });
+
+        // Reinitialize AOS on window resize for mobile responsiveness
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                AOS.refresh();
+            }, 250);
+        });
+
+        // Enhance animations on mobile
+        function optimizeAnimationsForMobile() {
+            const isMobile = window.innerWidth <= 768;
+            const aosElements = document.querySelectorAll('[data-aos]');
+            
+            aosElements.forEach(el => {
+                if (isMobile) {
+                    // Reduce delays on mobile for snappier feel
+                    const originalDelay = el.getAttribute('data-aos-delay');
+                    if (originalDelay) {
+                        const reducedDelay = Math.floor(parseInt(originalDelay) * 0.6);
+                        el.setAttribute('data-aos-delay', reducedDelay);
+                    }
+                    // Reduce duration on mobile
+                    const originalDuration = el.getAttribute('data-aos-duration');
+                    if (originalDuration) {
+                        const reducedDuration = Math.floor(parseInt(originalDuration) * 0.8);
+                        el.setAttribute('data-aos-duration', reducedDuration);
+                    }
+                }
+            });
+            
+            AOS.refresh();
+        }
+
+        // Optimize on load
+        window.addEventListener('load', optimizeAnimationsForMobile);
+        window.addEventListener('resize', optimizeAnimationsForMobile);
         
         // Initialize Swiper Testimonials
         const testimonialSwiper = new Swiper('.testimonialSwiper', {
