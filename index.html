@@ -783,6 +783,252 @@
         .bg-secondary-custom {
             background: var(--secondary);
         }
+
+        /* ==================== SERVICES SECTION ==================== */
+        .services-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+
+        .service-card-pro {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-pro:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+        }
+
+        .service-card-img-header {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card-img-hover {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 3;
+        }
+
+        .service-card-pro:hover .service-card-img {
+            opacity: 0;
+        }
+
+        .service-card-pro:hover .service-card-img-hover {
+            opacity: 1;
+        }
+
+        .service-card-img-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 94, 0.15);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .service-card-pro:hover .service-card-img-header::before {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .service-content-pro {
+            padding: 25px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .service-content-pro h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .service-content-pro p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-footer-pro {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 2px solid #f0f0f0;
+            margin-top: auto;
+        }
+
+        .service-duration {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .service-type-badge {
+            background: linear-gradient(135deg, var(--secondary), #ffc107);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .service-btn-cta {
+            background: linear-gradient(135deg, var(--primary), #0d47a1);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: calc(100% - 40px);
+            font-size: 0.9rem;
+            margin: 15px 20px 20px 20px;
+            flex-shrink: 0;
+        }
+
+        .service-btn-cta:hover {
+            background: linear-gradient(135deg, var(--secondary), #ffc107);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* ============ RESPONSIVE MEDIA QUERIES ============ */
+        @media (max-width: 1200px) {
+            .service-card-img-header {
+                height: 200px;
+            }
+            .service-content-pro {
+                padding: 20px;
+            }
+            .service-content-pro h4 {
+                font-size: 1.15rem;
+            }
+            .service-content-pro p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .service-card-img-header {
+                height: 180px;
+            }
+            .service-content-pro {
+                padding: 18px;
+            }
+            .service-content-pro h4 {
+                font-size: 1.1rem;
+            }
+            .service-footer-pro {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 60px 0;
+            }
+            .service-card-img-header {
+                height: 160px;
+            }
+            .service-card-pro {
+                border-radius: 10px;
+            }
+            .service-content-pro {
+                padding: 15px;
+            }
+            .service-content-pro h4 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .service-content-pro p {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            .service-footer-pro {
+                flex-wrap: wrap;
+                gap: 8px;
+                font-size: 0.75rem;
+            }
+            .service-btn-cta {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-section {
+                padding: 40px 0;
+            }
+            .service-card-img-header {
+                height: 140px;
+            }
+            .service-content-pro {
+                padding: 12px;
+            }
+            .service-content-pro h4 {
+                font-size: 0.95rem;
+            }
+            .service-content-pro p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            .service-footer-pro {
+                font-size: 0.7rem;
+                gap: 5px;
+            }
+            .service-type-badge {
+                padding: 3px 8px;
+                font-size: 0.65rem;
+            }
+            .service-btn-cta {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+                margin-top: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -800,7 +1046,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#home" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#classes" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#gallery" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="#testimonials" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Testimonials</a></li>
                 <li class="nav-item"><a class="nav-link" href="#expertise" style="transition: all 0.3s; color: rgba(255,255,255,0.9) !important;">Expertise</a></li>
@@ -820,7 +1066,7 @@
         
         <div class="hero-buttons">
             <button class="btn-primary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
-            <a href="#classes" class="btn-secondary-custom">Explore Classes</a>
+            <a href="#services" class="btn-secondary-custom">Explore Services</a>
         </div>
     </div>
 
@@ -902,63 +1148,167 @@
     </div>
 </section>
 
-<!-- Classes Section -->
-<section class="py-5 bg-light" id="classes">
+<!-- Services Section -->
+<section class="services-section" id="services">
     <div class="container">
-        <h2 class="section-title">Our Classes</h2>
+        <h2 class="section-title">Our Professional Services</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">
+            Comprehensive dance training & choreography for every need and lifestyle
+        </p>
         <div class="row g-4">
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-child fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Kids Dance</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Fun-based dance training for kids (5–10 years). Develops coordination, confidence, and creativity.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 5-10 years | Duration: 1 hour</small>
+            <!-- Service 1: Regular Classes -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju.jpeg" alt="Regular Classes" class="service-card-img">
+                        <img src="imgs/sanju 1.jpeg" alt="Regular Classes Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Regular Classes</h4>
+                        <p>Professional in-studio dance training sessions with expert guidance. Classes for all age groups and skill levels with personalized attention.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-clock"></i> 60 mins</span>
+                            <span class="service-type-badge">Popular</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('classes').scrollIntoView({behavior: 'smooth'})">View Details</button>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-music fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Hip Hop & Freestyle</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Professional hip-hop and freestyle dance classes for modern dancers of all levels.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 10+ years | Duration: 60 mins</small>
+            <!-- Service 2: Online Classes -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju 1.jpeg" alt="Online Classes" class="service-card-img">
+                        <img src="imgs/sanju 3.jpeg" alt="Online Classes Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Online Classes</h4>
+                        <p>Learn dance from home with live interactive sessions. Perfect for working professionals and students. One-on-one or group sessions available.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-globe"></i> Virtual</span>
+                            <span class="service-type-badge">Flexible</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Started</button>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-heart fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Bollywood Dance</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Learn authentic Bollywood dance for stage performances and special events.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 8+ years | Duration: 60 mins</small>
+            <!-- Service 3: Fitness Dance -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju 3.jpeg" alt="Fitness Dance" class="service-card-img">
+                        <img src="imgs/sanju2.jpeg" alt="Fitness Dance Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Fitness Dance</h4>
+                        <p>High-energy dance workout combining fitness & fun. Burn calories while learning dance moves. Perfect for health-conscious dancers.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-fire"></i> 60 mins</span>
+                            <span class="service-type-badge">Trending</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-dumbbell fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Fitness Dance</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Dance + fitness sessions for health, energy, and overall wellness with fun choreography.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 12+ years | Duration: 60 mins</small>
+            <!-- Service 4: Wedding Choreography -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju2.jpeg" alt="Wedding Choreography" class="service-card-img">
+                        <img src="imgs/sanju.jpeg" alt="Wedding Choreography Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Wedding Choreography</h4>
+                        <p>Customized dance routines for wedding ceremonies, receptions & celebrations. Professional choreography with full rehearsals and guidance.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-star"></i> Premium</span>
+                            <span class="service-type-badge">Exclusive</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Inquire Now</button>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-ring fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Wedding Choreography</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Customized dance routines and choreography for weddings and special celebrations.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Customized | Duration: Flexible</small>
+            <!-- Service 5: Event Choreography -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju.jpeg" alt="Event Choreography" class="service-card-img">
+                        <img src="imgs/sanju 1.jpeg" alt="Event Choreography Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Event Choreography</h4>
+                        <p>Professional choreography for corporate events, school functions, stage shows & cultural programs. Full production support available.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-calendar"></i> Custom</span>
+                            <span class="service-type-badge">Professional</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card service-card p-4 h-100 text-center" style="border-top: 4px solid var(--secondary);">
-                    <i class="fa-solid fa-school fa-3x text-warning mb-3" style="color: var(--secondary) !important;"></i>
-                    <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">School Training</h5>
-                    <p style="color: #666; margin-bottom: 20px;">Professional training programs for school competitions and cultural events.</p>
-                    <small style="color: var(--secondary); font-weight: 600;">Age: 6+ years | Duration: 60-90 mins</small>
+            <!-- Service 6: Diploma Programs -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="350">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju 1.jpeg" alt="Diploma Programs" class="service-card-img">
+                        <img src="imgs/sanju 3.jpeg" alt="Diploma Programs Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Diploma Programs</h4>
+                        <p>Comprehensive diploma courses in dance with recognized certifications. In-depth training in multiple dance forms with internship opportunities.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-graduation-cap"></i> 6-12 Months</span>
+                            <span class="service-type-badge">Certified</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Apply Now</button>
+                </div>
+            </div>
+
+            <!-- Service 7: School Training -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju 3.jpeg" alt="School Training" class="service-card-img">
+                        <img src="imgs/sanju2.jpeg" alt="School Training Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>School Training</h4>
+                        <p>Structured dance programs designed for school students with focus on classical, contemporary & Bollywood styles. Perfect for competitions and performances.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-users"></i> 45-60 mins</span>
+                            <span class="service-type-badge">Educational</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Today</button>
+                </div>
+            </div>
+
+            <!-- Service 8: Bollywood Dance -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="450">
+                <div class="service-card-pro">
+                    <div class="service-card-img-header">
+                        <img src="imgs/sanju2.jpeg" alt="Bollywood Dance" class="service-card-img">
+                        <img src="imgs/sanju.jpeg" alt="Bollywood Dance Hover" class="service-card-img-hover">
+                    </div>
+                    <div class="service-content-pro">
+                        <h4>Bollywood Dance</h4>
+                        <p>Experience the energy and glamour of Bollywood! Learn signature Bollywood moves, footwork & expressions. Perfect for events and celebrations.</p>
+                        <div class="service-footer-pro">
+                            <span class="service-duration"><i class="fas fa-music"></i> 60 mins</span>
+                            <span class="service-type-badge">Fun & Dynamic</span>
+                        </div>
+                    </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start Learning</button>
+                </div>
+            </div>
+                    <button class="service-btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start Learning</button>
                 </div>
             </div>
 
@@ -1297,7 +1647,7 @@
             Join I Am Dance Studio Today & Discover Your Hidden Talent with Expert Guidance
         </p>
         <a href="#contact" class="btn-primary-custom" style="background: var(--secondary); border-color: var(--secondary);">Enroll Now</a>
-        <a href="#classes" class="btn-primary-custom" style="background: transparent; border-color: var(--secondary); color: var(--secondary); margin-left: 20px;">Explore All Classes</a>
+        <a href="#services" class="btn-primary-custom" style="background: transparent; border-color: var(--secondary); color: var(--secondary); margin-left: 20px;">Explore All Services</a>
     </div>
 </section>
 
@@ -1415,7 +1765,7 @@
                 <ul style="list-style: none; padding: 0;">
                     <li><a href="#home" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Home</a></li>
                     <li><a href="#about" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">About</a></li>
-                    <li><a href="#classes" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Classes</a></li>
+                    <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Classes</a></li>
                     <li><a href="#gallery" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Gallery</a></li>
                     <li><a href="#testimonials" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Testimonials</a></li>
                     <li><a href="#expertise" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s;">Expertise</a></li>
