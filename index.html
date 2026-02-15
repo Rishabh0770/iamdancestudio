@@ -1905,69 +1905,348 @@
         
         /* ============ FOOTER ============ */
         .footer {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, rgba(26, 26, 94, 0.95) 100%);
             color: white;
             padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .footer > .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-about p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
         }
         
         .footer h5 {
             color: var(--secondary-color);
             margin-bottom: 25px;
             font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
         }
         
         .footer-links {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            transition: var(--transition);
+        }
+        
+        .footer-links li:hover {
+            transform: translateX(5px);
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
             color: var(--secondary-color);
-            padding-left: 5px;
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            width: 15px;
+            transition: var(--transition);
+        }
+        
+        .footer-links:not(.footer-contact-links) a i:first-child {
+            color: var(--secondary-color);
+        }
+        
+        .footer-links li:hover a i:first-child {
+            transform: rotate(20deg);
+        }
+        
+        .footer-contact-links li {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-links li i {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .footer-contact-links li div {
+            flex: 1;
+        }
+        
+        .footer-contact-links li strong {
+            display: block;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .footer-contact-links li p,
+        .footer-contact-links li a {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+            text-decoration: none;
+        }
+        
+        .footer-contact-links li a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
         }
         
         .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-about .social-icons {
+            justify-content: flex-start;
         }
         
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: var(--transition);
+            border: 2px solid transparent;
+            font-size: 1rem;
         }
         
         .social-icon:hover {
             background: var(--secondary-color);
             color: var(--primary-color);
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--secondary-color);
+            box-shadow: 0 15px 30px rgba(244, 193, 80, 0.3);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 50px 0 30px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 0.9rem;
+            line-height: 1.6;
+            padding: 20px 0;
+            display: block !important;
+        }
+        
+        .copyright p {
+            margin: 0;
+            display: block;
+        }
+        
+        .copyright strong {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .developer-link {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .developer-name {
+            color: #ff6b6b;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+        
+        .developer-link:hover .developer-name {
+            color: #ff8787;
+            text-decoration: underline;
+        }
+        
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 60px 0 25px;
+            }
+            
+            .footer > .container > .row > div {
+                text-align: center;
+            }
+            
+            .footer-about {
+                text-align: center;
+            }
+            
+            .footer h5 {
+                font-size: 1.1rem;
+                margin-bottom: 18px;
+                justify-content: center;
+            }
+            
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+            
+            .footer-links a {
+                font-size: 0.9rem;
+                justify-content: center;
+            }
+            
+            .footer-contact-links li {
+                margin-bottom: 18px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .social-icons {
+                gap: 12px;
+                justify-content: center;
+            }
+            
+            .social-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 0.9rem;
+            }
+            
+            .footer-divider {
+                margin: 40px 0 25px;
+            }
+            
+            .copyright {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer {
+                padding: 50px 0 20px;
+            }
+            
+            .footer > .container > .row > div {
+                text-align: center;
+            }
+            
+            .footer-about {
+                text-align: center;
+            }
+            
+            .footer h5 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .footer-about p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+            
+            .footer-links a {
+                font-size: 0.85rem;
+                gap: 8px;
+                justify-content: center;
+            }
+            
+            .footer-links a i {
+                font-size: 0.7rem;
+            }
+            
+            .footer-contact-links li {
+                margin-bottom: 16px;
+                gap: 12px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .footer-contact-links li i {
+                font-size: 1rem;
+            }
+            
+            .footer-contact-links li strong {
+                font-size: 0.9rem;
+            }
+            
+            .footer-contact-links li div {
+                text-align: center;
+            }
+            
+            .footer-contact-links li p,
+            .footer-contact-links li a {
+                text-align: center;
+            }
+            
+            .social-icons {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 0.85rem;
+            }
+            
+            .social-icon:hover {
+                transform: translateY(-5px) scale(1.08);
+            }
+            
+            .copyright {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                text-align: center;
+            }
+            
+            .footer-divider {
+                margin: 30px 0 20px;
+            }
         }
 
         /* ============ SERVICES SECTION ============ */
@@ -3457,59 +3736,86 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
+                <!-- About Section -->
                 <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up">
-                    <h5>I Am Dance Studio</h5>
-                    <p>Professional dance education and training center dedicated to fostering excellence in dance and performing arts. Led by Sanju with 15+ years of teaching experience and 1000+ students trained.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                    <div class="footer-about">
+                        <h5><i class="fas fa-dance" style="margin-right: 8px; color: var(--secondary-color);"></i>I Am Dance Studio</h5>
+                        <p>Professional dance education and training center dedicated to fostering excellence in dance and performing arts. Led by Sanju with 15+ years of teaching experience and 1000+ students trained.</p>
+                        <h6 style="color: var(--secondary-color); margin-top: 20px; margin-bottom: 12px; font-size: 0.95rem;"><i class="fas fa-link" style="margin-right: 8px;"></i>Follow Us</h6>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-                    <h5>Quick Links</h5>
+                    <h5><i class="fas fa-link" style="margin-right: 8px; color: var(--secondary-color);"></i>Quick Links</h5>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
                     </ul>
                 </div>
                 
+                <!-- Our Services -->
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                    <h5>Our Services</h5>
+                    <h5><i class="fas fa-star" style="margin-right: 8px; color: var(--secondary-color);"></i>Our Services</h5>
                     <ul class="footer-links">
-                        <li><a href="#services">Kids Dance</a></li>
-                        <li><a href="#services">Hip Hop & Freestyle</a></li>
-                        <li><a href="#services">Bollywood Dance</a></li>
-                        <li><a href="#services">Fitness Dance</a></li>
-                        <li><a href="#services">Wedding Choreography</a></li>
+                        <li><a href="#services"><i class="fas fa-check-circle"></i> Kids Dance</a></li>
+                        <li><a href="#services"><i class="fas fa-check-circle"></i> Hip Hop & Freestyle</a></li>
+                        <li><a href="#services"><i class="fas fa-check-circle"></i> Bollywood Dance</a></li>
+                        <li><a href="#services"><i class="fas fa-check-circle"></i> Fitness Dance</a></li>
+                        <li><a href="#services"><i class="fas fa-check-circle"></i> Wedding Choreography</a></li>
                     </ul>
                 </div>
                 
+                <!-- Contact Info -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <h5>Contact Info</h5>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>Old DC Office, Near First-Cry Showroom, Above Jio Office, 3rd Floor, Solan (173212), H.P</li>
-                        <li><i class="fas fa-phone me-2"></i> +91 8894348964</li>
-                        <li><i class="fas fa-envelope me-2"></i> S.riamdancer009@gmail.com</li>
+                    <h5><i class="fas fa-phone" style="margin-right: 8px; color: var(--secondary-color);"></i>Contact Info</h5>
+                    <ul class="footer-links footer-contact-links">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p>Old DC Office, Near First-Cry Showroom, Above Jio Office, 3rd Floor, Solan (173212), H.P</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:+918894348964">+91 8894348964</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:S.riamdancer009@gmail.com">S.riamdancer009@gmail.com</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
             
+            <div class="footer-divider"></div>
+            
             <div class="copyright" data-aos="fade-up">
-                <p>&copy; 2026 I Am Dance Studio. All Rights Reserved. | Designed & Developed by a Senior Full Stack Developer</p>
+                <p>&copy; 2026 <strong>I Am Dance Studio</strong>. All Rights Reserved. | Designed & Developed by <a href="https://rishavkumar.vercel.app/" target="_blank" rel="noopener noreferrer" class="developer-link"><span class="developer-name">Rishav Kumar</span></a></p>
             </div>
         </div>
     </footer>
