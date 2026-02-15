@@ -45,6 +45,7 @@
             color: var(--dark-text);
             overflow-x: hidden;
             line-height: 1.7;
+            overflow-y: auto;
         }
         
         h1, h2, h3, h4, h5 {
@@ -85,6 +86,18 @@
             margin: 1rem auto 0;
         }
         
+        .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+        }
+        
         /* ============ NAVBAR ============ */
         .navbar {
             background: linear-gradient(135deg, rgba(26, 26, 94, 0.98) 0%, rgba(26, 26, 94, 0.92) 100%) !important;
@@ -94,6 +107,13 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             z-index: 1000;
             border-bottom: 1px solid rgba(244, 193, 80, 0.1);
+            width: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+        }
+        
+        .navbar .container {
+            padding: 0 15px !important;
         }
         
         .navbar.scrolled {
@@ -276,6 +296,10 @@
                 padding: 0.4rem 0;
             }
             
+            .navbar .container {
+                padding: 0 10px !important;
+            }
+            
             .navbar-brand {
                 font-size: 1.1rem;
             }
@@ -297,6 +321,10 @@
                 width: 1.2rem;
                 height: 1.2rem;
             }
+            
+            .hero-section {
+                padding-top: 70px;
+            }
         }
         
         /* ============ HERO SECTION ============ */
@@ -309,6 +337,7 @@
             justify-content: center;
             color: white;
             overflow: hidden;
+            padding-top: 80px;
         }
         
         .hero-bg-slider {
